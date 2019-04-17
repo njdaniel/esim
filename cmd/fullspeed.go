@@ -20,9 +20,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// shipcmdsCmd represents the shipcmds command
-var shipcmdsCmd = &cobra.Command{
-	Use:   "shipcmds",
+// fullspeedCmd represents the fullspeed command
+var fullspeedCmd = &cobra.Command{
+	Use:   "fullspeed",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -31,20 +31,20 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("shipcmds called")
+		fmt.Println("fullspeed called")
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(shipcmdsCmd)
+	rootCmd.AddCommand(fullspeedCmd)
 
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// shipcmdsCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// fullspeedCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// shipcmdsCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// fullspeedCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
