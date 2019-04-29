@@ -16,6 +16,21 @@ type Ship struct {
 	Radius         int
 }
 
+type Space struct {
+	Ship Ship
+	Location Location
+}
+
+func (s Space) updateLocation() {
+
+}
+
+// Location of the ship on the grid
+type Location struct {
+	x int
+	y int
+}
+
 // Defense contains the hitpoints and the resistance
 type Defense struct {
 	MaxHP    int
