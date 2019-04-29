@@ -17,7 +17,7 @@ type Ship struct {
 }
 
 type Space struct {
-	Ship Ship
+	Ship     Ship
 	Location Location
 }
 
@@ -27,8 +27,7 @@ func (s Space) updateLocation() {
 
 // Location of the ship on the grid
 type Location struct {
-	x int
-	y int
+	x, y int
 }
 
 // Defense contains the hitpoints and the resistance
