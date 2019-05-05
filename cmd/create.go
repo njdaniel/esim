@@ -18,20 +18,28 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
+
+	"github.com/njdaniel/esim/ship"
 )
+
+// Ships is a type list of ships that exist
+type Ships []ship.Ship
+
+// ShipList is the global variable of the all the ships created
+var ShipList Ships
 
 // createCmd represents the create command
 var createCmd = &cobra.Command{
 	Use:   "create",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Short: "Creates a new object",
+	Long: `The objects to interact with are created with this command. 
+	For example:
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	esim -p 1337 create ship --name rifter`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("create called")
+		ship := ship.Ship{}
+		ShipList = append(ShipList, ship)
 	},
 }
 
