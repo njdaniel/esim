@@ -9,26 +9,33 @@ type Ship struct {
 	MaxTargetRange int
 	Capacitor      Capacitor
 	Weapons        []Weapon
-	MaxVelocity    int
-	CurVelocity    int
+	MaxVelocity    float64
+	//CurVelocity    int
+	//XVelocity	   float64
+	//YVelocity	   float64
+	Velocity	   Vector
 	Inertia        float64
 	Mass           int
 	Radius         int
+	Location	   Vector
 }
 
-type Space struct {
-	Ship     Ship
-	Location Location
+// Space is a local area containing ships and possibly other objects
+type Space []Ship
+
+// Vector struct holding the x y values of a 2d vector
+type Vector struct {
+	X, Y float64
 }
 
-func (s Space) updateLocation() {
-
+// Add Two vectors
+func (a *Vector) Add(b Vector) {
+	a.X += b.X
+	a.Y += b.Y
+	return
 }
 
-// Location of the ship on the grid
-type Location struct {
-	x, y int
-}
+
 
 // Defense contains the hitpoints and the resistance
 type Defense struct {
