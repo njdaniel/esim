@@ -18,4 +18,9 @@ import "github.com/njdaniel/esim/cmd"
 
 func main() {
 	cmd.Execute()
+	// TODO: create space
+	// TODO: create ship and add to space
+	// TODO: ctrl ship via cli
+	// TODO: print out ship traits
+	// TODO: leave program running
 }
