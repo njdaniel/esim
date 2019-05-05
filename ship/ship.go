@@ -13,11 +13,11 @@ type Ship struct {
 	//CurVelocity    int
 	//XVelocity	   float64
 	//YVelocity	   float64
-	Velocity	   Vector
-	Inertia        float64
-	Mass           int
-	Radius         int
-	Location	   Vector
+	Velocity Vector
+	Inertia  float64
+	Mass     int
+	Radius   int
+	Location Vector
 }
 
 // Space is a local area containing ships and possibly other objects
@@ -29,13 +29,13 @@ type Vector struct {
 }
 
 // Add Two vectors
-func (a *Vector) Add(b Vector) {
+// TODO: returning Vector for testing.. should i return vector?
+// pointer receiver 'a' is already being modified
+func (a *Vector) Add(b Vector) Vector {
 	a.X += b.X
 	a.Y += b.Y
-	return
+	return *a
 }
-
-
 
 // Defense contains the hitpoints and the resistance
 type Defense struct {
