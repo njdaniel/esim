@@ -14,7 +14,14 @@
 
 package main
 
-import "github.com/njdaniel/esim/cmd"
+import (
+	"fmt"
+	"log"
+	"net"
+
+	"github.com/njdaniel/esim/cmd"
+	grpc "google.golang.org/grpc"
+)
 
 func main() {
 	cmd.Execute()
@@ -22,5 +29,15 @@ func main() {
 	// TODO: create ship and add to space
 	// TODO: ctrl ship via cli
 	// TODO: print out ship traits
-	// TODO: leave program running
+	// TODO: PRIORITY leave program running
+	fmt.Println("Starting esim...")
+	srv := grpc.NewServer()
+	// var universe universeServer
+	l, err := net.Listen("tcp", ":4040")
+	if err != nil {
+		log.Fatalf("could not listen to :4040: %v", err)
+	}
+	log.Fatal(srv.Serve(l))
 }
+
+type universeServer struct{}
