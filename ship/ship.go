@@ -1,5 +1,12 @@
 package ship
 
+import "math"
+
+const (
+	RadToDeg = 180 / math.Pi
+	DegToRad = math.Pi / 180
+)
+
 // Ship contains the data for a space ship
 type Ship struct {
 	Name           string
@@ -10,14 +17,33 @@ type Ship struct {
 	Capacitor      Capacitor
 	Weapons        []Weapon
 	MaxVelocity    float64
-	//CurVelocity    int
-	//XVelocity	   float64
-	//YVelocity	   float64
-	Velocity Vector
-	Inertia  float64
-	Mass     int
-	Radius   int
-	Location Vector
+	CurVelocity    float64
+	Velocity       Vector
+	Inertia        float64
+	Mass           int
+	Radius         int
+	Location       Vector
+	Heading        Degrees
+}
+
+// FullSpeed function to increase Current velocity to Max
+func (s *Ship) FullSpeed() {
+	s.CurVelocity = s.MaxVelocity
+}
+
+func (s *Ship) Stop() {
+	s.CurVelocity = 0.0
+}
+
+func (s *Ship) Turn(d Degrees) {
+	s.Heading += d
+	s.Velocity.X = s.CurVelocity * math.Cos(float64(d)*RadToDeg)
+	s.Velocity.Y = s.CurVelocity * math.Sin(float64(d)*RadToDeg)
+}
+
+// UpateLocation the current velocity updates the current location
+func (s *Ship) UpdateLocation() {
+
 }
 
 // Space is a local area containing ships and possibly other objects
@@ -36,6 +62,8 @@ func (a *Vector) Add(b Vector) Vector {
 	a.Y += b.Y
 	return *a
 }
+
+type Degrees float64
 
 // Defense contains the hitpoints and the resistance
 type Defense struct {

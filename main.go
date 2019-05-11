@@ -16,28 +16,52 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"net"
+	"math"
 
-	"github.com/njdaniel/esim/cmd"
-	grpc "google.golang.org/grpc"
+	"github.com/njdaniel/esim/ship"
+)
+
+const (
+	RadToDeg = 180 / math.Pi
+	DegToRad = math.Pi / 180
 )
 
 func main() {
-	cmd.Execute()
+	// cmd.Execute()
+
 	// TODO: create space
 	// TODO: create ship and add to space
 	// TODO: ctrl ship via cli
 	// TODO: print out ship traits
 	// TODO: PRIORITY leave program running
 	fmt.Println("Starting esim...")
-	srv := grpc.NewServer()
-	// var universe universeServer
-	l, err := net.Listen("tcp", ":4040")
-	if err != nil {
-		log.Fatalf("could not listen to :4040: %v", err)
+
+	// srv := grpc.NewServer()
+	// // var universe universeServer
+	// l, err := net.Listen("tcp", ":4040")
+	// if err != nil {
+	// 	log.Fatalf("could not listen to :4040: %v", err)
+	// }
+	// log.Fatal(srv.Serve(l))
+
+	c := ""
+	var space []ship.Ship
+	// Update state every 1/s
+
+	// Wait for input by cli
+	fmt.Print("Enter cmd: ")
+	fmt.Scanln(&c)
+	fmt.Println(c)
+	if c == "cs" {
+		fmt.Println("Creating...")
+		ship := ship.Ship{
+			Name: "rifter",
+		}
+		space = append(space, ship)
 	}
-	log.Fatal(srv.Serve(l))
+	fmt.Println(space)
+	// fmt.Printf("%.2f\n", math.Cos(math.Pi/2))
+	// fmt.Printf("%.2f\n", math.Sin(math.Pi/2))
 }
 
-type universeServer struct{}
+// type universeServer struct{}
