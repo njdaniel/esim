@@ -17,6 +17,8 @@ package main
 import (
 	"fmt"
 	"math"
+	"sync"
+	"time"
 
 	"github.com/njdaniel/esim/models"
 )
@@ -45,10 +47,16 @@ func main() {
 	// log.Fatal(srv.Serve(l))
 
 	c := ""
-	//TODO: create a new object for space instead of a []ships
 	var space []models.Ship
-	// Update state every 1/s
+	var wg sync.WaitGroup
 
+	// Update state every 1/s
+	go func() {
+		for {
+			fmt.Println("hi")
+			time.Sleep(time.Second * 5)
+		}
+	}()
 	// Wait for input by cli
 	fmt.Print("Enter cmd: \n")
 	for {

@@ -22,8 +22,8 @@ type Ship struct {
 	Inertia        float64
 	Mass           int
 	Radius         int
-	Location       Vector // Probably going to move this to the space object
-	Heading        Degrees
+	//Location       Vector // Probably going to move this to the space object
+	Heading Degrees
 }
 
 // FullSpeed function to increase Current velocity to Max
@@ -37,17 +37,20 @@ func (s *Ship) Stop() {
 
 func (s *Ship) Turn(d Degrees) {
 	s.Heading += d
-	s.Velocity.X = s.CurVelocity * math.Cos(float64(d)*RadToDeg)
-	s.Velocity.Y = s.CurVelocity * math.Sin(float64(d)*RadToDeg)
-}
-
-// UpateLocation the current velocity updates the current location
-func (s *Ship) UpdateLocation() {
-
+	s.Velocity.X = s.CurVelocity * math.Cos(float64(s.Heading)*RadToDeg)
+	s.Velocity.Y = s.CurVelocity * math.Sin(float64(s.Heading)*RadToDeg)
 }
 
 // Space is a local area containing ships and possibly other objects
-type Space []Ship
+type Space struct {
+	Ships    []Ship
+	Location Vector
+}
+
+// UpdateLocation the current velocity updates the current location
+func (s *Space) UpdateLocation(ship *Ship) {
+	s.Location.Add(ship.Velocity)
+}
 
 // Vector struct holding the x y values of a 2d vector
 type Vector struct {
