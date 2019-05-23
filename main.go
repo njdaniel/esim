@@ -45,6 +45,7 @@ func main() {
 	// log.Fatal(srv.Serve(l))
 
 	c := ""
+	//TODO: create a new object for space instead of a []ships
 	var space []models.Ship
 	// Update state every 1/s
 
