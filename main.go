@@ -50,19 +50,27 @@ func main() {
 	// Update state every 1/s
 
 	// Wait for input by cli
-	fmt.Print("Enter cmd: ")
-	fmt.Scanln(&c)
-	fmt.Println(c)
-	if c == "cs" {
-		fmt.Println("Creating...")
-		ship := models.Ship{
-			Name: "rifter",
+	fmt.Print("Enter cmd: \n")
+	for {
+
+		fmt.Scanln(&c)
+		// fmt.Println(c)
+		if c == "cs" {
+			fmt.Println("Creating...")
+			ship := models.Ship{
+				Name: "rifter",
+			}
+			space = append(space, ship)
 		}
-		space = append(space, ship)
+		// fmt.Printf("%.2f\n", math.Cos(math.Pi/2))
+		// fmt.Printf("%.2f\n", math.Sin(math.Pi/2))
+		if c == "exit" {
+			break
+		} else {
+			fmt.Printf("command not recognized: %s \n", c)
+		}
+		fmt.Printf("space: %v \n", space)
 	}
-	fmt.Println(space)
-	// fmt.Printf("%.2f\n", math.Cos(math.Pi/2))
-	// fmt.Printf("%.2f\n", math.Sin(math.Pi/2))
 }
 
 // type universeServer struct{}

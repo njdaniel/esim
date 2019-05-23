@@ -22,7 +22,7 @@ type Ship struct {
 	Inertia        float64
 	Mass           int
 	Radius         int
-	Location       Vector
+	Location       Vector // Probably going to move this to the space object
 	Heading        Degrees
 }
 
