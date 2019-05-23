@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/njdaniel/esim/ship"
+	"github.com/njdaniel/esim/models"
 )
 
 const (
@@ -45,7 +45,7 @@ func main() {
 	// log.Fatal(srv.Serve(l))
 
 	c := ""
-	var space []ship.Ship
+	var space []models.Ship
 	// Update state every 1/s
 
 	// Wait for input by cli
@@ -54,7 +54,7 @@ func main() {
 	fmt.Println(c)
 	if c == "cs" {
 		fmt.Println("Creating...")
-		ship := ship.Ship{
+		ship := models.Ship{
 			Name: "rifter",
 		}
 		space = append(space, ship)
