@@ -17,7 +17,6 @@ package main
 import (
 	"fmt"
 	"math"
-	"sync"
 	"time"
 
 	"github.com/njdaniel/esim/models"
@@ -46,24 +45,29 @@ func main() {
 	// }
 	// log.Fatal(srv.Serve(l))
 
-	c := ""
-	var space []models.Ship
-	var wg sync.WaitGroup
+	var space models.Space
+	//var wg sync.WaitGroup
 
-	// Update state every 1/s
+	// Update state every 1/s =========================================
 	go func() {
-		for {
+		for range time.Tick(time.Second) {
 			fmt.Println("hi")
-			time.Sleep(time.Second * 5)
+			//TODO: Update the position of each object in space
+			for _, x := range space {
+				x.UpdateLocation()
+			}
+			//time.Sleep(time.Second * 5)
 		}
 	}()
-	// Wait for input by cli
+
+	// Wait for input by cli ==========================================
 	fmt.Print("Enter cmd: \n")
+	c := ""
 	for {
 
 		fmt.Scanln(&c)
 		// fmt.Println(c)
-		if c == "cs" {
+		if c == "-d" {
 			fmt.Println("Creating...")
 			ship := models.Ship{
 				Name: "rifter",

@@ -36,3 +36,63 @@ func TestVector_Add(t *testing.T) {
 		})
 	}
 }
+
+func TestShip_FullSpeed(t *testing.T) {
+	tests := []struct {
+		name string
+		s    *Ship
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			tt.s.FullSpeed()
+		})
+	}
+}
+
+func TestShip_Stop(t *testing.T) {
+	tests := []struct {
+		name string
+		s    *Ship
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			tt.s.Stop()
+		})
+	}
+}
+
+func TestShip_Turn(t *testing.T) {
+	type args struct {
+		d Degrees
+	}
+	tests := []struct {
+		name string
+		s    *Ship
+		args args
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			tt.s.Turn(tt.args.d)
+		})
+	}
+}
+
+func TestShip_UpdateLocation(t *testing.T) {
+	tests := []struct {
+		name string
+		s    *Ship
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			tt.s.UpdateLocation()
+		})
+	}
+}
