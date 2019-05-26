@@ -16,8 +16,12 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"math"
 	"time"
+
+	flag "github.com/spf13/pflag"
+	"github.com/spf13/viper"
 
 	"github.com/njdaniel/esim/models"
 )
@@ -26,6 +30,20 @@ const (
 	RadToDeg = 180 / math.Pi
 	DegToRad = math.Pi / 180
 )
+
+func init() {
+	log.Println("Checking for config file...")
+	var configFile *string
+	configFile = flag.StringP("config", "c", "", "location of config file")
+	flag.Parse()
+	viper.SetConfigFile(*configFile)
+	err := viper.ReadInConfig()
+	if err != nil {
+		log.Printf("could not read config file: %v \n", err)
+	} else {
+		fmt.Printf("Config %v read in", *configFile)
+	}
+}
 
 func main() {
 	// cmd.Execute()
