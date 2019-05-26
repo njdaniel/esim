@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"math"
 	"sync"
 )
@@ -30,6 +31,14 @@ type Ship struct {
 	Mutex          sync.Mutex
 }
 
+func (s *Ship) Print() {
+	fmt.Printf("Ship Name: %s \n"+
+		"MaxVelocity: %v \n"+
+		"CurVelocity: %v \n"+
+		"Velocity: %v \n"+
+		"Location: %v \n", s.Name, s.MaxVelocity, s.CurVelocity, s.Velocity, s.Location)
+}
+
 // FullSpeed function to increase Current velocity to Max
 func (s *Ship) FullSpeed() {
 	s.Mutex.Lock()
@@ -41,6 +50,8 @@ func (s *Ship) Stop() {
 	s.Mutex.Lock()
 	defer s.Mutex.Unlock()
 	s.CurVelocity = 0.0
+	s.Velocity.X = 0.0
+	s.Velocity.Y = 0.0
 }
 
 func (s *Ship) Turn(d Degrees) {
@@ -55,11 +66,13 @@ func (s *Ship) Turn(d Degrees) {
 func (s *Ship) UpdateLocation() {
 	s.Mutex.Lock()
 	defer s.Mutex.Unlock()
+	s.Velocity.X = s.CurVelocity * math.Cos(float64(s.Heading)*RadToDeg)
+	s.Velocity.Y = s.CurVelocity * math.Sin(float64(s.Heading)*RadToDeg)
 	s.Location.Add(s.Velocity)
 }
 
 // Space is a local area containing ships and possibly other objects =================================
-type Space []Ship
+type Space map[string]*Ship
 
 // Vector struct holding the x y values of a 2d vector
 type Vector struct {

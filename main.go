@@ -45,13 +45,12 @@ func main() {
 	// }
 	// log.Fatal(srv.Serve(l))
 
-	var space models.Space
+	space := make(models.Space)
 	//var wg sync.WaitGroup
 
 	// Update state every 1/s =========================================
 	go func() {
 		for range time.Tick(time.Second) {
-			fmt.Println("hi")
 			//TODO: Update the position of each object in space
 			for _, x := range space {
 				x.UpdateLocation()
@@ -67,22 +66,31 @@ func main() {
 
 		fmt.Scanln(&c)
 		// fmt.Println(c)
-		if c == "-d" {
+		if c == "create" {
 			fmt.Println("Creating...")
 			ship := models.Ship{
-				Name: "rifter",
+				Name:        "rifter",
+				MaxVelocity: 180,
 			}
-			space = append(space, ship)
-		}
-		// fmt.Printf("%.2f\n", math.Cos(math.Pi/2))
-		// fmt.Printf("%.2f\n", math.Sin(math.Pi/2))
-		if c == "exit" {
+			space["rifter"] = &ship
+			fmt.Println("done.")
+		} else if c == "full" {
+			if s, ok := space["rifter"]; ok {
+				s.FullSpeed()
+				fmt.Printf("current speed %f \n", s.CurVelocity)
+			} else {
+				fmt.Println("doesnt exist")
+			}
+		} else if c == "location" {
+			fmt.Printf("Current location %v \n", space["rifter"].Location)
+		} else if c == "describe" {
+			//fmt.Printf("Ship stats: %v", space["rifter"])
+			space["rifter"].Print()
+		} else if c == "exit" {
 			break
 		} else {
 			fmt.Printf("command not recognized: %s \n", c)
 		}
-		fmt.Printf("space: %v \n", space)
+		//fmt.Printf("space: %v \n", space)
 	}
 }
-
-// type universeServer struct{}
