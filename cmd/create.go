@@ -16,13 +16,13 @@ package cmd
 
 import (
 	"fmt"
+	"github.com/njdaniel/esim/services"
 
-	"github.com/njdaniel/esim/models"
 	"github.com/spf13/cobra"
 )
 
 // Ships is a type list of ships that exist
-type Ships []models.Ship
+type Ships []main.Ship
 
 // ShipList is the global variable of the all the ships created
 var ShipList Ships
@@ -37,7 +37,7 @@ var createCmd = &cobra.Command{
 	esim -p 1337 create ship --name rifter`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("create called")
-		ship := models.Ship{}
+		ship := main.Ship{}
 		ShipList = append(ShipList, ship)
 	},
 }

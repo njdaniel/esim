@@ -16,14 +16,13 @@ package main
 
 import (
 	"fmt"
+	main2 "github.com/njdaniel/esim/services"
 	"log"
 	"math"
 	"time"
 
 	flag "github.com/spf13/pflag"
 	"github.com/spf13/viper"
-
-	"github.com/njdaniel/esim/models"
 )
 
 const (
@@ -63,7 +62,7 @@ func main() {
 	// }
 	// log.Fatal(srv.Serve(l))
 
-	space := make(models.Space)
+	space := make(main2.Space)
 	//var wg sync.WaitGroup
 
 	// Update state every 1/s =========================================
@@ -86,7 +85,7 @@ func main() {
 		// fmt.Println(c)
 		if c == "create" {
 			fmt.Println("Creating...")
-			ship := models.Ship{
+			ship := main2.Ship{
 				Name:        "rifter",
 				MaxVelocity: 180,
 			}

@@ -1,6 +1,7 @@
 package models
 
 import (
+	"github.com/njdaniel/esim/services"
 	"reflect"
 	"testing"
 )
@@ -11,22 +12,22 @@ func TestVector_Add(t *testing.T) {
 		Y float64
 	}
 	type args struct {
-		b Vector
+		b main.Vector
 	}
 	tests := []struct {
 		name   string
 		fields fields
 		args   args
-		want   Vector
+		want   main.Vector
 	}{
-		{"add pos pos to 00", fields{0, 0}, args{Vector{2.0, 3.0}}, Vector{2.0, 3.0}},
+		{"add pos pos to 00", fields{0, 0}, args{main.Vector{2.0, 3.0}}, main.Vector{2.0, 3.0}},
 		// {"add neg neg to 00"},
 		// {"add pos pos to pos post"},
 		// {"add pos pos to neg neg"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			a := &Vector{
+			a := &main.Vector{
 				X: tt.fields.X,
 				Y: tt.fields.Y,
 			}
@@ -40,7 +41,7 @@ func TestVector_Add(t *testing.T) {
 func TestShip_FullSpeed(t *testing.T) {
 	tests := []struct {
 		name string
-		s    *Ship
+		s    *main.Ship
 	}{
 		// TODO: Add test cases.
 	}
@@ -54,7 +55,7 @@ func TestShip_FullSpeed(t *testing.T) {
 func TestShip_Stop(t *testing.T) {
 	tests := []struct {
 		name string
-		s    *Ship
+		s    *main.Ship
 	}{
 		// TODO: Add test cases.
 	}
@@ -67,11 +68,11 @@ func TestShip_Stop(t *testing.T) {
 
 func TestShip_Turn(t *testing.T) {
 	type args struct {
-		d Degrees
+		d main.Degrees
 	}
 	tests := []struct {
 		name string
-		s    *Ship
+		s    *main.Ship
 		args args
 	}{
 		// TODO: Add test cases.
@@ -86,7 +87,7 @@ func TestShip_Turn(t *testing.T) {
 func TestShip_UpdateLocation(t *testing.T) {
 	tests := []struct {
 		name string
-		s    *Ship
+		s    *main.Ship
 	}{
 		// TODO: Add test cases.
 	}
