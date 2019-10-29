@@ -22,12 +22,15 @@ pull request.
 ## Code of Conduct
  * Be nice
  
-## I have a Question
+## Where to ask Questions
 
-Join slack: https://join.slack.com/t/rtp-gophers/shared_invite/enQtNTE3NjIyMTgyODgyLTRhOTcxODBlNjc3NGYxNTI4Mzg5Mzg4OTY5ZjVmOGQ4ZDIyZjIxMzUxZDJlNjc0MzNmZjM2MmI3YmRlMzFjOTk
+Join slack: 
+https://join.slack.com/t/rtp-gophers/shared_invite/enQtNTE3NjIyMTgyODgyLTRhOTcxODBlNjc3NGYxNTI4Mzg5Mzg4OTY5ZjVmOGQ4ZDIyZjIxMzUxZDJlNjc0MzNmZjM2MmI3YmRlMzFjOTk
 Ask question in the #go-projects channels.
 
 ## What to know before I get started
+
+### Dependency management
  
  
 ## How can I contribute?
@@ -47,6 +50,12 @@ Fill out the [required template](https://github.com/atom/.github/blob/master/.gi
 ### Your First Code Contribution
 
 ### Pull Requests
+
+#### Steps to Contribute
+Should you wish to work on an issue, please claim it first by commenting on the GitHub issue that you want to work on it. 
+This is to prevent duplicated efforts from contributors on the same issue.
+
+
  
 ## Styleguides
 
