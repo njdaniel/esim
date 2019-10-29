@@ -5,9 +5,8 @@ pull request.
 
 #### Table of Contents
 
-[Code of Conduct](#code-of-conduct)
 
-[I have a Question](#i-have-a-question)
+[Where to ask Questions](#i-have-a-question)
 
 [What to know before I get started](#what-to-know-before-i-get-started)
 
@@ -19,9 +18,7 @@ pull request.
  
 [Styleguides](#styleguides)
 
-## Code of Conduct
- * Be nice
- 
+
 ## Where to ask Questions
 
 Join slack: 
@@ -31,9 +28,51 @@ Ask question in the #go-projects channels.
 ## What to know before I get started
 
 ### Dependency management
+
+Project uses [Go modules](https://golang.org/cmd/go/#hdr-Modules__module_versions__and_more) to manage dependencies on external packages. This requires a working Go environment with version 1.13 or greater installed.
+
+All dependencies are vendored in the `vendor/` directory.
+
+To add or update a new dependency, use the `go get` command:
+
+```bash
+# Pick the latest tagged release.
+go get example.com/some/module/pkg
+
+# Pick a specific version.
+go get example.com/some/module/pkg@vX.Y.Z
+```
+
+Tidy up the `go.mod` and `go.sum` files and copy the new/updated dependency to the `vendor/` directory:
+
+
+```bash
+# The GO111MODULE variable can be omitted when the code isn't located in GOPATH.
+GO111MODULE=on go mod tidy
+
+GO111MODULE=on go mod vendor
+```
+
+You have to commit the changes to `go.mod`, `go.sum` and the `vendor/` directory before submitting the pull request.
  
  
 ## How can I contribute?
+
+### Steps to Contribute
+Should you wish to work on an issue, please claim it first by commenting on the GitHub issue that you want to work on it. 
+This is to prevent duplicated efforts from contributors on the same issue.
+
+Fork project and create new branch.
+Create and reference a 'Draft Pull Request' in the Issue and mark with WIP until ready to be merged.  
+
+For quick compile and testing
+```
+#running the project
+go run main.go
+
+#run tests
+make test
+```
 
 ### Reporting Bugs
 Follow this guideline to help contributors to 
@@ -49,11 +88,9 @@ Fill out the [required template](https://github.com/atom/.github/blob/master/.gi
 
 ### Your First Code Contribution
 
-### Pull Requests
+### Pull Request Checklist
 
-#### Steps to Contribute
-Should you wish to work on an issue, please claim it first by commenting on the GitHub issue that you want to work on it. 
-This is to prevent duplicated efforts from contributors on the same issue.
+
 
 
  
