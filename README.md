@@ -4,5 +4,9 @@ PoC of an space simulation with the terminal. Inspired by EVEOnline, GalacticCon
 
 ref: [https://esi.evetech.net], [https://www.eveonlineships.com]
 
+## Getting Started
+
+//TODO: 
+
 ### To contribute
-see contributing.md
+[see contributing.md](./contributing.md)

@@ -1,0 +1,78 @@
+{
+    "name": "Rifter arty fit",
+    "uid": 123,
+    "ship_type_id": 587,
+    "description": "",
+    "items": [
+        {
+            "flag": 11,
+            "quantity": 1,
+            "type_id": 4254
+        },
+        {
+            "flag": 12,
+            "quantity": 1,
+            "type_id": 1183
+        },
+        {
+            "flag": 13,
+            "quantity": 1,
+            "type_id": 1306
+        },
+        {
+            "flag": 14,
+            "quantity": 1,
+            "type_id": 1306
+        },
+        {
+            "flag": 19,
+            "quantity": 1,
+            "type_id": 440
+        },
+        {
+            "flag": 20,
+            "quantity": 1,
+            "type_id": 3568
+        },
+        {
+            "flag": 21,
+            "quantity": 1,
+            "type_id": 3244
+        },
+        {
+            "flag": 27,
+            "quantity": 1,
+            "type_id": 2977
+        },
+        {
+            "flag": 28,
+            "quantity": 1,
+            "type_id": 2977
+        },
+        {
+            "flag": 29,
+            "quantity": 1,
+            "type_id": 2977
+        },
+        {
+            "flag": 92,
+            "quantity": 1,
+            "type_id": 31680
+        },
+        {
+            "flag": 93,
+            "quantity": 1,
+            "type_id": 31680
+        },
+        {
+            "flag": 5,
+            "quantity": 2,
+            "type_id": 31998
+        },
+        {
+            "flag": 5,
+            "quantity": 60,
+            "type_id": 20765
+        }
+    ]
+}

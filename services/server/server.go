@@ -1,9 +1,9 @@
-package main
+package server
 
 import (
 	"context"
 	"fmt"
-	"github.com/njdaniel/esim/services/models"
+	"github.com/njdaniel/esim/services/server/models"
 	"log"
 	"net"
 	"time"
