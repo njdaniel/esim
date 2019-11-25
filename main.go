@@ -16,7 +16,7 @@ package main
 
 import (
 	"fmt"
-	main2 "github.com/njdaniel/esim/services"
+	main2 "github.com/njdaniel/esim/services/server"
 	"log"
 	"math"
 	"time"

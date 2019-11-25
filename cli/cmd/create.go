@@ -16,8 +16,6 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/njdaniel/esim/services"
-
 	"github.com/spf13/cobra"
 )
 
